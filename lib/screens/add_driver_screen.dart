@@ -14,7 +14,7 @@ class AddDriver extends StatefulWidget {
 class NewCar {
   int index;
   String color = "#" + (math.Random().nextDouble() * 0xFFFFFF).toInt().toRadixString(16);
-  String position = "0.0, 0.0";
+  String position = "36.81465465620368, 10.166621166510582";
   int serialNum;
   Driver? driver;
 
@@ -156,7 +156,7 @@ class _AddDriverState extends State<AddDriver> {
                 }),
 
                 validator: (value) {
-                  if (value == null || value.isEmpty || value.toString().length == 8) {
+                  if (value == null || value.isEmpty) {
                     return 'Please enter a valid phone number !';
                   }
 

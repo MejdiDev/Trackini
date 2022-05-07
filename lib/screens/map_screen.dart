@@ -236,7 +236,7 @@ class MapScreenState extends State<MapScreen> {
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
                   width: (MediaQuery.of(context).size.width - 15.0),
-                  height: windowExpanded ? (MediaQuery.of(context).size.height - 240.0) : 75.0,
+                  height: windowExpanded ? (MediaQuery.of(context).size.height - 120.0) : 75.0,
                   margin: windowExpanded ? const EdgeInsets.fromLTRB(7.5, 0.0, 0.0, 95.0) : const EdgeInsets.only(left: 7.5),
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(

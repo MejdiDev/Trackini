@@ -12,7 +12,7 @@ void main() async {
         apiKey: "AIzaSyDOpxju62yp0ITVWc3T1znoZDL5tKIFpYM",
         appId: "1:539477892852:android:eb9bc5373ecec94cbf88a1",
         messagingSenderId: "539477892852",
-        projectId: "tracking-c7cb4"
+        projectId: "tracking-c7cb4",
     ),
   );
 
@@ -26,7 +26,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  MapScreen(),
+      home:  SignInScreen(),
     );
   }
 }
