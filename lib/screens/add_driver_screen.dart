@@ -49,7 +49,7 @@ class _AddDriverState extends State<AddDriver> {
   XFile? image;
 
   NewCar newCar = NewCar(
-    index: 3,
+    index: 999,
     serialNum: 0000000,
     driver: Driver()
   );
@@ -78,7 +78,7 @@ class _AddDriverState extends State<AddDriver> {
 
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                    return 'Please enter a name !';
                   }
 
                   return null;
@@ -99,11 +99,27 @@ class _AddDriverState extends State<AddDriver> {
 
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                    return 'Please enter a valid CIN !';
                   }
 
                   return null;
                 },
+              ),
+
+              DropdownButtonFormField(
+                  value: 'Male',
+
+                  items: <String>['Male', 'Female']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+
+                  onChanged: (value) => setState(() {
+                    newCar.driver!.gender = value.toString();
+                  }),
               ),
 
               TextFormField(
@@ -119,8 +135,8 @@ class _AddDriverState extends State<AddDriver> {
                 }),
 
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                  if (value == null || value.isEmpty || value.toString().length == 2) {
+                    return 'Please a valid age !';
                   }
 
                   return null;
@@ -140,8 +156,8 @@ class _AddDriverState extends State<AddDriver> {
                 }),
 
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                  if (value == null || value.isEmpty || value.toString().length == 8) {
+                    return 'Please enter a valid phone number !';
                   }
 
                   return null;
@@ -164,7 +180,7 @@ class _AddDriverState extends State<AddDriver> {
 
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                    return 'Please enter a valid serial number !';
                   }
 
                   return null;
@@ -175,6 +191,12 @@ class _AddDriverState extends State<AddDriver> {
                 onPressed: () {
                   if(_formKey.currentState!.validate()){
                     newCar.save();
+
+                    newCar = NewCar(
+                        index: 999,
+                        serialNum: 0000000,
+                        driver: Driver()
+                    );
                   }
                 },
 
